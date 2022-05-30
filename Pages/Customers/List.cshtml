@@ -1,0 +1,82 @@
+﻿@page
+@model GroceryCRUDWebApp.Pages.Customers.ListModel
+@{
+}
+<form method="post" class="shadow">
+    <h4>Customers</h4>
+    
+ <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="input-group">
+                <input class="form-control border rounded-pill"
+                       type="search" placeholder="type search text" id="example-search-input"
+                       asp-for="@Model.SearchText">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-primary bg-white border rounded-pill ms-n5"
+                            type="submit" asp-page-handler="Search">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <button class="btn btn-outline-dark bg-white border rounded-pill ms-n5"
+                            type="submit" asp-page-handler="Clear">
+                        <i class="fa fa-remove"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+<div class=form-group>
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+        <h6 class="text-danger">@Html.ValidationSummary()</h6>
+    </div>
+    <br/>
+
+<table class="table">
+    <thed>
+        <tr>
+            <th scope="col">CustomerId</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">PhoneNo</th>
+            <th scope="col">Password</th>
+            <th scope="col">ConfirmPasword</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thed>
+    <tbody>
+        @if(Model.Customers==null || Model.Customers.Count<0)
+        {
+            <tr>
+                <td colspan=10>No Customers found</td>
+            </tr>
+        }
+        else
+        {
+        @foreach(var d in @Model.Customers)
+        {
+            <tr>
+                <td>@d.CustomerId</td>
+                <td>@d.Name</td>
+                <td>@d.Email</td>
+                 <td>@d.PhoneNo</td>
+                  <td>@d.Password</td>
+                   <td>@d.ConfirmPassword</td>
+                <td>
+                     <a href="/Customers/Edit/@d.CustomerId" class="btn btn-outline-warning" role="button">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                      @* @if (User.IsInRole("Admin"))
+                        {
+                            <a href="/Customers/Delete/@d.CustomerId" class="btn btn-outline-danger" role="button">
+                                <i class="fa fa-trash-can"></i>
+                            </a>
+                        }*@
+                    </td>
+            </tr>
+        }
+     }
+    </tbody>
+    
+</table>
+</form>

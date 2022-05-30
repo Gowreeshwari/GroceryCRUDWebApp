@@ -1,0 +1,31 @@
+﻿@page "{id}"
+@model GroceryCRUDWebApp.Pages.Products.EditModel
+@{
+}
+<h4 class="text-center">Edit Products</h4>
+<form method="post">
+   
+     <div class="form-group">
+        <label asp-for="@Model.ProductName"></label>
+        <input asp-for="@Model.ProductName" class="form-control" />
+     </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Cost"></label>
+       <input asp-for="@Model.Cost" class="form-control" />
+    </div>
+    <div class="form-group col">
+            <label asp-for="@Model.SelectedCategoryId"></label>
+            <select asp-for="@Model.SelectedCategoryId" asp-items="@Model.CategoryList" class="form-select"></select>
+     </div>
+     <div class="form-group">
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+        <h6 class="text-danger">@Html.ValidationSummary()</h6>
+    </div>
+    <div class="row gx-0">
+        <button type="submit" class="col btn btn-success me-2">Save</button>
+        <a href="/Products/List" class="col btn btn-default border-secondary ms-2" role="button">Cancel</a>
+    </div>
+    
+    </form>

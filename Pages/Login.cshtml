@@ -1,0 +1,32 @@
+﻿@page
+@model GroceryCRUDWebApp.Pages.LoginModel
+@{
+}
+
+<form method="post" class="shadow">
+     <h3>Login</h3>
+    <div class="form-group">
+        <label asp-for="@Model.UserName"></label>
+        <input asp-for="@Model.UserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Password"></label>
+        <input asp-for="@Model.Password" class="form-control" />
+    </div>
+   
+   @* <button type="submit" class="btn-primary ">Submit</button>*@
+  
+    <button onclick="/Carts/List" class="btn btn-success">Login</button>
+   @* <button onclick="/Registration">Register</button>
+   *@
+      @* <a href="/Registration" class="btn-outline-warning" role="button">
+               Register
+      </a>
+  *@
+
+    <div class=form-group>
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+    </div>
+    <br/>
+</form>

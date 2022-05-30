@@ -1,0 +1,75 @@
+﻿@page
+@model GroceryCRUDWebApp.Pages.Carts.ListModel
+@{
+}
+
+<form method="post" class="shadow">
+    <div class="row">
+        <div class="col-md-6"><h3>Add To Cart</h3></div>
+        <div class="col-md-2">
+            <a href="/Carts/Add" class="btn btn-primary rounded-pill" role="button">
+                <i class="fa fa-add"></i> Add
+
+            </a>
+        </div>
+        <div class="col-md-2">
+            <a href="/Orders/Add" class="btn btn-success rounded-pill" role="button">
+                <i class="fa fa-add"></i> Order
+
+            </a>
+
+
+        </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">CartId</th>
+                    <th scope="col">CustomerId</th>
+                    <th scope="col">ProductId</th>
+                    @*<th scope="col">CouponId</th>
+                        <th scope="col">Cost</th>*@
+                    <th scope="col">NoofProducts</th>
+                    <th scope="col">TotalAmount</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CartRecords == null || Model.CartRecords.Count < 0)
+                {
+                    <tr>
+                        <td colspan=10>No Cart Records Found</td>
+                    </tr>
+                }
+                else
+                {
+
+                    @foreach (var d in Model.CartRecords)
+                    {
+                        <tr>
+                            <td>@d.CartId</td>
+                            <td>@d.CustomerId</td>
+                            <td>@d.ProductId</td>
+                            @* <td>@d.CouponId</td>
+                                <td>@d.Cost</td>*@
+                            <td>@d.NoofProducts</td>
+                            <td>@d.TotalAmount</td>
+                            <td>
+
+
+                                <a href="/Carts/Delete/@d.CartId" class="btn btn-outline-danger" role="button">
+                                    <i class="fa fa-trash-can"></i>
+                                </a>
+
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</form>

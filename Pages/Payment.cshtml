@@ -1,0 +1,43 @@
+﻿@page
+@model GroceryCRUDWebApp.Pages.PaymentModel
+@{
+}
+
+<form method="post" class="shadow">
+    <h3>Delivery Process</h3>
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input asp-for="@Model.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Address"></label>
+        <input asp-for="@Model.Address" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.City"></label>
+        <input asp-for="@Model.City" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.State"></label>
+        <input asp-for="@Model.State" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.Pincode"></label>
+        <input asp-for="@Model.Pincode" class="form-control" />
+    </div>
+
+@*    <button type="submit" class="btn-primary ">OrderNow</button>
+*@   
+@*<button onclick="/Carts/List" class="btn btn-success">OrderNow</button>*@
+
+                <a href="/Carts/List" class="btn btn-success rounded-pill" role="button">
+                    <i class="fa fa-add"></i>
+                    OrderNow
+                </a>
+    <div class=form-group>
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+        <h6>@Html.ValidationSummary()</h6>
+    </div>
+    <br/>
+</form>

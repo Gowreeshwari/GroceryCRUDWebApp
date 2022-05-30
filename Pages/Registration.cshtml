@@ -1,0 +1,36 @@
+﻿@page
+@model GroceryCRUDWebApp.Pages.RegistrationModel
+@{
+}
+
+<form method="post" class="shadow">
+    <h3>Registration</h3>
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input asp-for="@Model.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Email"></label>
+        <input asp-for="@Model.Email" class="form-control" />
+
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="@Model.PhoneNo"></label>
+        <input asp-for="@Model.PhoneNo" class="form-control" />
+
+    </div>
+   
+   
+   @*  <button type="submit" class="btn-primary ">Register
+         
+     </button><a href="/Login"></a>*@
+      <button onclick="/Index">Login</button>
+      <button onclick="/Login">Cancel</button>
+    <div class=form-group>
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+        <h6>@Html.ValidationSummary()</h6>
+    </div>
+    <br/>
+    </form>

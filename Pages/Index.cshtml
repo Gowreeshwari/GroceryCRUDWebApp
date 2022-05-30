@@ -1,0 +1,69 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@if (User.Identity.IsAuthenticated)
+{
+
+    <h4>@Model.ErrorMessage</h4>
+
+    <div class="row">
+    <div class="col-md-4 col-xl-4">
+        <div class="card bg-c-blue db-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Customers</h6>
+                <h2 class="text-end"><i class="fa fa-person float-start"></i><span>@Model.CountCustomer</span></h2>
+                <p class="m-b-0">Active <span class="f-right"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xl-4">
+        <div class="card bg-c-green db-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Categories</h6>
+                <h2 class="text-end"><i class="fa fa-building float-start"></i><span>@Model.CategoryCount</span></h2>
+                <p class="m-b-0">Active <span class="float-end"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xl-4">
+        <div class="card bg-c-pink db-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Products</h6>
+                <h2 class="text-end"><i class="fas fa-shipping-fast float-start"></i><span>@Model.ProductCount</span></h2>
+                <p class="m-b-0">No Of Products <span class="float-end">@Model.CartCount</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+}
+else
+{
+    <div class="row">
+        <br/>
+        <br/>
+    </div>
+    <div class="row text-center">
+        <br/>
+        <br/>
+        <br/>
+        <h4>Welcome to Online Grocery Shopping</h4>
+        <br/>
+        <br/>
+        <br/>
+        <div>
+            <div class="col-sm-4"></div>
+        <a href="/Login" role="button" class="btn btn-success col-sm-4">Login</a> 
+        </div>
+    </div>
+  @*  <h4 >Please click here to </h4>
+    <h4 >New User click here to Register <a href="/Registration">Register</a> </h4>*@
+ }
+
+ <form method="post">
+    <div class="text-center">
+        </div>
+</form>
